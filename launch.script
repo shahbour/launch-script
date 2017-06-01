@@ -36,7 +36,6 @@ while [[ -L "$jarfile" ]]; do
   jarfile=$(readlink "$jarfile")
   cd "$(dirname "$jarfile")" || exit 1
   jarfile=$(pwd)/$(basename "$jarfile")
-  echo $jarfile
 
   jarfolder="$( (cd "$(dirname "$jarfile")" && pwd -P) )"
   cd "$WORKING_DIR" || exit 1
