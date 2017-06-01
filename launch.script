@@ -31,8 +31,6 @@ WORKING_DIR="$(pwd)"
 # Follow symlinks to find the real jar and detect init.d script
 cd "$(dirname "$0")" || exit 1
 [[ -z "$jarfile" ]] && jarfile=$(pwd)/$(basename "$0")
-originalconfigfile="$(basename "${jarfile%.*}.conf")"
-echo $originalconfigfile
 while [[ -L "$jarfile" ]]; do
   [[ "$jarfile" =~ init\.d ]] && init_script=$(basename "$jarfile")
   jarfile=$(readlink "$jarfile")
